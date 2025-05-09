@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Bun
+curl -fsSL https://bun.sh/install | bash
+
+# Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+brew install zoxide eza bat ripgrep fd fzf jq fastfetch
+brew install neovim tmux
+brew install yabai skhd
+brew install fnm pnpm
+brew install go
+
+brew install ghostty
+
+hash -r

@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+dry_run="0"
+
+# Ensure XDG_CONFIG_HOME is set
+if [ -z "${XDG_CONFIG_HOME:-}" ]; then
+    echo "XDG_CONFIG_HOME not set. Using default: ~/.config"
+    XDG_CONFIG_HOME="$HOME/.config"
+fi
+
+# Ensure DEV_ENV is set
+if [ -z "${DEV_ENV:-}" ]; then
+    echo "Environment variable DEV_ENV is required."
+    exit 1
+fi
+
+# Dry run mode
+if [[ "${1:-}" == "--dry" ]]; then
+    dry_run="1"
+fi
+
+log() {
+    if [[ "$dry_run" == "1" ]]; then
+        echo "[DRY_RUN]: $1"
+    else
+        echo "$1"
+    fi
+}
+
+log "Using DEV_ENV: $DEV_ENV"
+
+update_files() {
+    local src_dir="$1"
+    local target_base="$2"
+
+    if [[ ! -d "$src_dir" ]]; then
+        log "Source directory $src_dir does not exist. Skipping."
+        return
+    fi
+
+    log "Updating files from $src_dir to $target_base"
+
+    pushd "$src_dir" > /dev/null
+    while IFS= read -r -d '' entry; do
+        local dir_name="${entry#./}"
+        local dest="$target_base/$dir_name"
+
+        log "    Removing: $dest"
+        [[ "$dry_run" == "0" ]] && rm -rf "$dest"
+
+        log "    Copying: $entry to $target_base"
+        [[ "$dry_run" == "0" ]] && cp -r "$entry" "$target_base"
+    done < <(find . -mindepth 1 -maxdepth 1 -type d -print0)
+    popd > /dev/null
+}
+
+copy() {
+    local src="$1"
+    local dest="$2"
+
+    if [[ ! -e "$src" ]]; then
+        log "Source file $src does not exist. Skipping."
+        return
+    fi
+
+    log "Removing: $dest"
+    [[ "$dry_run" == "0" ]] && rm -f "$dest"
+
+    log "Copying: $src to $dest"
+    [[ "$dry_run" == "0" ]] && cp "$src" "$dest"
+}
+
+# Apply updates
+update_files "$DEV_ENV/env/.config" "$XDG_CONFIG_HOME"
+copy "$DEV_ENV/env/.gitconfig" "$HOME/.gitconfig"
+copy "$DEV_ENV/env/.zshrc" "$HOME/.zshrc"
+zsh -c "source ~/.zshrc"
+
+yabai --restart-service
+echo 'Reload yabai'
+skhd --restart-service
+echo 'Reload skhd'
+hash -r
