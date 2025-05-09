@@ -10,8 +10,9 @@ brew install zoxide eza bat ripgrep fd fzf jq fastfetch
 brew install neovim tmux
 brew install yabai skhd
 brew install fnm pnpm
+brew install orbstack yaak
 brew install go
 
-brew install ghostty
+brew install --cask ghostty bitwarden brave-browser
 
 hash -r
