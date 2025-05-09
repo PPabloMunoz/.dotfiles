@@ -1,10 +1,20 @@
 #!/usr/bin/env bash
 
 # Bun
-curl -fsSL https://bun.sh/install | bash
+bunInstalled=$(which bun)
+if [ -z "$bunInstalled" ]; then
+  curl -fsSL https://bun.sh/install | bash
+else
+  echo "Bun already installed"
+fi
 
 # Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brewInstalled=$(which brew)
+if [ -z "$brewInstalled" ]; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else
+  echo "Homebrew already installed"
+fi
 
 brew install zoxide eza bat ripgrep fd fzf jq fastfetch
 brew install neovim tmux
