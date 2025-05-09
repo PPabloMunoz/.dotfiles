@@ -73,7 +73,6 @@ copy() {
 
 # Apply updates
 update_files "$DEV_ENV/env/.config" "$XDG_CONFIG_HOME"
-copy "$DEV_ENV/env/.gitconfig" "$HOME/.gitconfig"
 copy "$DEV_ENV/env/.zshrc" "$HOME/.zshrc"
 zsh -c "source ~/.zshrc"
 
