@@ -13,7 +13,7 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
 bar=(
-  height=40
+  height=30
   color=0xa024273a
   shadow=on
   position=top
@@ -39,8 +39,8 @@ sketchybar --bar "${bar[@]}"
 default=(
   padding_left=5
   padding_right=5
-  icon.font="JetBrainsMono Nerd Font:Bold:16.0"
-  label.font="JetBrainsMono Nerd Font:Bold:13.0"
+  icon.font="JetBrainsMono Nerd Font:Bold:15.0"
+  label.font="JetBrainsMono Nerd Font:Bold:12.0"
   icon.color=0xffffffff
   label.color=0xffffffff
   icon.padding_left=4
@@ -66,7 +66,7 @@ do
     icon.padding_right=7
     background.color=0x40ffffff
     background.corner_radius=5
-    background.height=25
+    background.height=20
     label.drawing=off
     script="$PLUGIN_DIR/space.sh"
     click_script="yabai -m space --focus $sid"
