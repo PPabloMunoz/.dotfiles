@@ -26,7 +26,7 @@ brew install go
 brew install --cask ghostty bitwarden brave-browser
 
 brew tap FelixKratz/formulae
-brew install sketchybar icalbuddy
+brew install sketchybar ical-buddy
 brew services start sketchybar
 
 brew tap FelixKratz/formulae
