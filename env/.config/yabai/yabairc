@@ -1,3 +1,6 @@
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
 # default layout (can be bsp, stack or float)
 yabai -m config layout bsp
 
@@ -12,7 +15,7 @@ yabai -m config right_padding 10
 yabai -m config window_gap 10
 
 # center mouse on window with focus
-yabai -m config mouse_follows_focus on
+# yabai -m config mouse_follows_focus on
 
 # modifier for clicking and dragging with mouse
 yabai -m config mouse_modifier alt
@@ -32,3 +35,8 @@ yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add app="^Bitwarden$" manage=off
 
 yabai -m config external_bar all:50:0
+
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 &

@@ -29,4 +29,7 @@ brew tap FelixKratz/formulae
 brew install sketchybar
 brew services start sketchybar
 
+brew tap FelixKratz/formulae
+brew install borders
+
 hash -r
