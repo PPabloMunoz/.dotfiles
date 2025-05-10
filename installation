@@ -25,4 +25,8 @@ brew install go
 
 brew install --cask ghostty bitwarden brave-browser
 
+brew tap FelixKratz/formulae
+brew install sketchybar
+brew services start sketchybar
+
 hash -r

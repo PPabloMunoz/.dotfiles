@@ -30,3 +30,5 @@ yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Calendar$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add app="^Bitwarden$" manage=off
+
+yabai -m config external_bar all:50:0

@@ -76,6 +76,13 @@ update_files "$DEV_ENV/env/.config" "$XDG_CONFIG_HOME"
 copy "$DEV_ENV/env/.zshrc" "$HOME/.zshrc"
 zsh -c "source ~/.zshrc"
 
+# Check if 'brew' and 'sketchybar' are available
+if command -v sketchybar >/dev/null 2>&1; then
+    sketchybar --reload
+else
+    echo "Required commands not found: brew and/or sketchybar."
+fi
+
 yabai --restart-service
 echo 'Reload yabai'
 skhd --restart-service
