@@ -16,7 +16,7 @@ else
     split(dt[2], times, " - ");
     print title " | " times[1]
   }')
-  cleaned_text=$(echo "$FORMATTED_EVENT" | sed -E 's/•[[:space:]]*//; s/today at[[:space:]]*//I')
+  cleaned_text=$(echo "$FORMATTED_EVENT" | sed -E 's/•[[:space:]]*//; s/today at[[:space:]]*//I; s/\|[[:space:]]*//g')
   sketchybar --set "$NAME" label="$cleaned_text"
 fi
 
