@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Get the primary network interface (e.g., en0)
 INTERFACE=$(route get default 2>/dev/null | awk '/interface: / { print $2 }')
