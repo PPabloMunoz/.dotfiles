@@ -74,7 +74,8 @@ sketchybar --add item battery right \
            --set battery \
            update_freq=30 \
            script="$PLUGIN_DIR/battery.sh" \
-           background.color="$BG_COLOR" background.corner_radius=2 icon.padding_left=10 label.padding_right=10
+           background.color="$BG_COLOR" background.corner_radius=2 icon.padding_left=10 label.padding_right=10 \
+           --subscribe battery power_source_change
 
 sketchybar --add item net_up right \
            --set net_up icon= \

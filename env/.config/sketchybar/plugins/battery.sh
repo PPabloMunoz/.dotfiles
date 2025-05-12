@@ -20,16 +20,16 @@ ICON=""
 COLOR="0xffffffff"
 
 # Apply logic based on charging status and percentage
-if [ "$STATUS" = "AC" ]; then
-  COLOR="0xffa6e3a1"
-  ICON=""
-else
+if echo "$BATTERY_INFO" | grep -q "discharging"; then
   if [ "$PERCENTAGE" -le 20 ]; then
     COLOR="0xfff38ba8"
   else
     COLOR="0xfffab387"
   fi
   ICON=""
+else
+  COLOR="0xffa6e3a1"
+  ICON=""
 fi
 
 # Output for SketchyBar
