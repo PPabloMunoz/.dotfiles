@@ -16,7 +16,7 @@ else
   echo "Homebrew already installed"
 fi
 
-brew install zoxide eza bat ripgrep fd fzf jq fastfetch
+brew install zoxide eza bat ripgrep fd fzf jq fastfetch tldr
 brew install neovim tmux
 brew install yabai skhd
 brew install fnm pnpm
