@@ -52,7 +52,7 @@ do
 done
 
 sketchybar --add item chevron left \
-           --set chevron icon= label.drawing=off \
+           --set chevron icon= label.drawing=off \
            --add item front_app left \
            --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" background.color="$BG_COLOR" background.corner_radius=2 label.padding_left=10 label.padding_right=10 \
            --subscribe front_app front_app_switched
