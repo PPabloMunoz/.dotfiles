@@ -4,7 +4,7 @@
 BATTERY_INFO=$(pmset -g batt)
 
 # Exit quietly if no battery is found
-if echo "$BATTERY_INFO" | grep -qi "AC Power"; then
+if ! echo "$BATTERY_INFO" | grep -qi "InternalBattery"; then
   sketchybar --set "$NAME" icon= label= label.color=0x00000000 width=0
   exit 0
 fi
