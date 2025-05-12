@@ -64,7 +64,7 @@ sketchybar --add item clock right \
 
 sketchybar --add item my_calendar right \
            --set my_calendar icon="" \
-                          update_freq=300 \
+                          update_freq=60 \
                           script="$PLUGIN_DIR/next_event.sh" \
                           click_script="open -a Calendar" \
                           label.max_chars=30 \
