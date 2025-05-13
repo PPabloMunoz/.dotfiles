@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Fetch the next upcoming event
-NEXT_EVENT=$(icalBuddy -n -li 1 -ps "| |" -iep 'title,datetime' eventsFrom:now to:today+1)
+NEXT_EVENT=$(icalBuddy -ea -n -li 1 -ps "| |" -iep 'title,datetime' eventsFrom:now to:today+1)
 
 # Check if there’s an event; if not, show a fallback message
 if [ -z "$NEXT_EVENT" ]; then
