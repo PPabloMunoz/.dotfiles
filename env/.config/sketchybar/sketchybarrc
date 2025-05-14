@@ -79,8 +79,7 @@ sketchybar --add item battery right \
 
 sketchybar --add item warp right \
            --set warp update_freq=1 \
-           icon="" \
-           icon.font="JetBrainsMono Nerd Font:Bold:25.0" \
+           icon.font="JetBrainsMono Nerd Font:Bold:20.0" \
            label.width=0 \
            label.padding_right=10 \
            background.color=0x00000000 \
