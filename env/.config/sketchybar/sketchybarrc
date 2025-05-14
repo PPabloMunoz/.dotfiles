@@ -77,6 +77,17 @@ sketchybar --add item battery right \
            background.color="$BG_COLOR" background.corner_radius=2 icon.padding_left=10 label.padding_right=10 \
            --subscribe battery power_source_change
 
+sketchybar --add item warp right \
+           --set warp update_freq=1 \
+           icon="" \
+           icon.font="JetBrainsMono Nerd Font:Bold:25.0" \
+           label.width=0 \
+           label.padding_right=10 \
+           background.color=0x00000000 \
+           background.corner_radius=2 \
+           script="$PLUGIN_DIR/warp.sh" \
+           click_script="$PLUGIN_DIR/warp-click.sh"
+
 sketchybar --add item net_up right \
            --set net_up icon= \
            icon.font="JetBrainsMono Nerd Font:Bold:10.0" \
@@ -94,6 +105,7 @@ sketchybar --add item net_down right \
            icon.highlight_color=0xff8b0a0d \
            y_offset=-5 \
            update_freq=1 \
+
 
 
 
