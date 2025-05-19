@@ -1,6 +1,3 @@
-# yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-# sudo yabai --load-sa
-
 # default layout (can be bsp, stack or float)
 yabai -m config layout bsp
 
@@ -34,9 +31,7 @@ yabai -m rule --add app="^Calendar$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add app="^Bitwarden$" manage=off
 
-yabai -m config external_bar all:40:0
-
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-sudo yabai --load-sa
+# Uncomment it for sketchybar
+# yabai -m config external_bar all:40:0
 
 borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=4.0 &
