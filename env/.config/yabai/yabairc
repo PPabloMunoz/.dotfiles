@@ -30,6 +30,7 @@ yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Calendar$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add app="^Bitwarden$" manage=off
+yabai -m rule --add app="^Tomito$" manage=off
 
 # Uncomment it for sketchybar
 # yabai -m config external_bar all:40:0
