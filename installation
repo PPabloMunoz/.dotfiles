@@ -19,7 +19,7 @@ fi
 brew install zoxide eza bat ripgrep fd fzf jq fastfetch tldr
 brew install neovim tmux
 brew install yabai skhd
-brew install fnm pnpm
+brew install fnm
 brew install orbstack yaak
 brew install go
 
@@ -27,7 +27,7 @@ brew install --cask ghostty bitwarden brave-browser
 
 brew tap FelixKratz/formulae
 brew install sketchybar ical-buddy
-brew services start sketchybar
+# brew services start sketchybar
 
 brew tap FelixKratz/formulae
 brew install borders
