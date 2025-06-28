@@ -39,6 +39,7 @@ return {
       typescriptreact = { 'biome' },
       json = { 'biome', 'prettierd' },
       jsonc = { 'biome', 'prettierd' },
+      toml = { 'taplo' },
     },
   },
 }
