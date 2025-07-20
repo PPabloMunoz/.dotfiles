@@ -31,12 +31,10 @@ eval "$(zoxide init zsh)"
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
-# bun completions
-[ -s "/home/pamunoz/.bun/_bun" ] && source "/home/pamunoz/.bun/_bun"
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+[ -s "/home/pamunoz/.bun/_bun" ] && source "/home/pamunoz/.bun/_bun"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
