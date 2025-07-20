@@ -21,9 +21,10 @@ brew install neovim tmux
 brew install yabai skhd
 brew install go fnm
 
-brew install --cask ghostty bitwarden brave-browser yaak orbstack
+brew install --cask ghostty bitwarden brave-browser yaak orbstack raycast
+# Raycast Extensions: color picker,
 
 brew install borders
-borders active_color=0xFF01CFDD inactive_color=0xFF494D64 width=4.0 &
+brew services start borders
 
 hash -r

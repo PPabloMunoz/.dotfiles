@@ -1,0 +1,59 @@
+{
+	// "show_edit_predictions": false,
+	"assistant": {
+		"inline_assistant_model": {
+   "provider": "zed.dev",
+   "model": "claude-3-7-sonnet-latest"
+  },
+  "default_model": {
+			"provider": "copilot_chat",
+			"model": "gemini-2.5-pro"
+		},
+		"version": "2"
+	},
+	"show_completions_on_input": true,
+	"edit_predictions": {
+		"disabled_globs": ["*.env*"],
+		"mode": "eager"
+	},
+	"relative_line_numbers": true,
+	"icon_theme": "Catppuccin Mocha",
+	"chat_panel": {
+		"dock": "left"
+	},
+	"project_panel": {
+		"dock": "right"
+	},
+	"base_keymap": "VSCode",
+	"vim_mode": true,
+	"terminal": {
+		"font_size": 13
+	},
+	"ui_font_size": 15,
+	"buffer_font_family": "JetBrainsMono Nerd Font",
+	"buffer_font_weight": 600,
+	"buffer_font_size": 16,
+	"theme": {
+		"mode": "system",
+		"light": "One Light",
+		"dark": "Catppuccin Mocha - No Italics"
+	},
+	"features": {
+		"edit_prediction_provider": "zed"
+	},
+	"formatter": {
+		"language_server": {
+			"name": "biome"
+		}
+	},
+	"diagnostics": {
+		"include_warnings": true,
+		"inline": {
+			"enabled": true,
+			"update_debounce_ms": 150,
+			"padding": 4,
+			"min_column": 0,
+			"max_severity": null
+		}
+	}
+}
