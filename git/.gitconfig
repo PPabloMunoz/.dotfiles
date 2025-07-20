@@ -1,0 +1,16 @@
+[user]
+    email=ppablomunozp@gmail.com
+    username=Pablo Muñoz
+    name=Pablo Muñoz
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+[pager]
+    diff = false
+    log = false
+    status = false
+[core]
+    editor = nvim
+    autocrlf = input

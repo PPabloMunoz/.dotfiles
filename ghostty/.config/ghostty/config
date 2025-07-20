@@ -1,0 +1,12 @@
+theme = catppuccin-mocha
+
+background = 000000
+font-size = 16
+background-opacity = 0.85
+background-blur = true
+
+window-width = 187
+window-height = 52
+
+cursor-text = #1C1C24
+gtk-titlebar = false
