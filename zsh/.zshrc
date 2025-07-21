@@ -8,7 +8,7 @@ fi
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting golang)
+plugins=(git tmux golang zsh-autosuggestions zsh-syntax-highlighting you-should-use)
 source $ZSH/oh-my-zsh.sh
 
 # CUSTOM
@@ -22,7 +22,6 @@ alias la="eza --color=always --icons --no-time --git --long --all"
 alias cat="bat -p"
 alias cd="z"
 alias man="tldr"
-alias ta="tmux a"
 alias vim="nvim"
 
 #END CUSTOM
