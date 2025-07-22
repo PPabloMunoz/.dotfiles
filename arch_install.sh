@@ -28,12 +28,15 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/you-should-use
 
-yay -S zoxide eza bat ripgrep fd fzf jq fastfetch tldr stow feh postgresql
+yay -S zoxide eza bat ripgrep fd fzf jq fastfetch tldr stow feh brightnessctl xorg-xinit
 yay -S neovim tmux fnm go
 yay -S ghostty brave-bin firefox
 yay -S docker docker-compose
 
 fnm install --lts
 fnm install --latest
+
+xset r rate 200 40
+brightnessctl set 100%
 
 hash -r
