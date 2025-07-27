@@ -13,7 +13,8 @@ source $ZSH/oh-my-zsh.sh
 
 # CUSTOM
 export XDG_CONFIG_HOME=$HOME/.config
-VIM="nvim"
+export VIM="nvim"
+export EDITOR="nvim"
 
 alias reload="source ~/.zshrc"
 alias ls="eza --color=always --icons --no-time --git"
