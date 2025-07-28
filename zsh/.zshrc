@@ -22,7 +22,7 @@ alias ll="eza --color=always --icons --no-time --git --long"
 alias la="eza --color=always --icons --no-time --git --long --all"
 alias cat="bat -p"
 alias cd="z"
-alias man="tldr"
+alias man="tlrc"
 alias vim="nvim"
 
 #END CUSTOM
