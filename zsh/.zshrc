@@ -13,7 +13,6 @@ source $ZSH/oh-my-zsh.sh
 
 # CUSTOM
 export XDG_CONFIG_HOME=$HOME/.config
-export VIM="nvim"
 export EDITOR="nvim"
 
 alias reload="source ~/.zshrc"
@@ -23,7 +22,6 @@ alias la="eza --color=always --icons --no-time --git --long --all"
 alias cat="bat -p"
 alias cd="z"
 alias man="tlrc"
-alias vim="nvim"
 
 #END CUSTOM
 eval "$(zoxide init zsh)"
