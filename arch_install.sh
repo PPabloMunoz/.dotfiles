@@ -17,24 +17,22 @@ else
 fi
 
 # yay
-sudo pacman -S --needed git base-devel 
+sudo pacman -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git ~/yay && cd yay && makepkg -si
 yay
 
-# oh-my-zsh + plugins
 yay -S zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/you-should-use
+
+# oh-my-zsh + plugins ---- Commented for STARSHIP
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+# git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/you-should-use
 
 yay -S zoxide eza bat ripgrep fd fzf jq fastfetch tlrc stow feh brightnessctl xorg-xinit
 yay -S neovim tmux fnm go
 yay -S ghostty brave-bin firefox
 yay -S docker docker-compose
-
-fnm install --lts
-fnm install --latest
 
 xset r rate 200 40
 brightnessctl set 100%
