@@ -22,6 +22,8 @@ return {
       json = { "biome", "prettierd" },
       jsonc = { "biome", "prettierd" },
       toml = { "taplo" },
+      cpp = { "clang-format" }, -- use clang-format for C++
+      c = { "clang-format" }, -- and for C
     },
     formatters = {
       injected = { options = { ignore_errors = true } },
