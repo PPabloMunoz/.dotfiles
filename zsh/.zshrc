@@ -38,5 +38,21 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.oh-my-zsh/custom/plugins/you-should-use/zsh-you-should-use.plugin.zsh
+
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
+# Enable completion system
+autoload -Uz compinit
+compinit
+
+# Show all completions on first Tab press
+zstyle ':completion:*' menu select
+zstyle ':completion:*' list-prompt ''
+zstyle ':completion:*' select-prompt ''
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
 eval "$(starship init zsh)"
 
