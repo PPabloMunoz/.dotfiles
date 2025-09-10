@@ -21,17 +21,18 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/you-should-use
-
 brew install starship
+
 brew install zoxide eza bat ripgrep fd fzf jq fastfetch tlrc stow
 brew install neovim tmux
-brew install yabai skhd
 brew install go fnm
+brew install --cask nikitabobko/tap/aerospace
+# brew install yabai skhd
 
 brew install --cask ghostty bitwarden brave-browser yaak orbstack raycast
 # Raycast Extensions: color picker,
 
-brew install borders
-brew services start borders
+# brew install borders
+# brew services start borders
 
 hash -r
