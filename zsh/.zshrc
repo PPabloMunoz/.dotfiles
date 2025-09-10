@@ -12,6 +12,9 @@
 # plugins=(git tmux golang zsh-autosuggestions zsh-syntax-highlighting you-should-use)
 # source $ZSH/oh-my-zsh.sh
 
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 # CUSTOM
 export XDG_CONFIG_HOME=$HOME/.config
 export EDITOR="nvim"
