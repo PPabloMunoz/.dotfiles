@@ -50,15 +50,11 @@ source ~/.oh-my-zsh/custom/plugins/you-should-use/zsh-you-should-use.plugin.zsh
 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
-# Enable completion system
-autoload -Uz compinit
-compinit
-
-# Show all completions on first Tab press
-zstyle ':completion:*' menu select
-zstyle ':completion:*' list-prompt ''
-zstyle ':completion:*' select-prompt ''
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# Carapace completions
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+source <(carapace _carapace)
+zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'external commands'
 
 eval "$(starship init zsh)"
 
