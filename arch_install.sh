@@ -33,6 +33,7 @@ yay -S zoxide eza bat ripgrep fd fzf jq fastfetch tlrc stow feh brightnessctl xo
 yay -S neovim tmux fnm go
 yay -S ghostty brave-bin firefox
 yay -S docker docker-compose
+yay -S carapace-bin
 
 xset r rate 200 40
 brightnessctl set 100%
