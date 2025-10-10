@@ -1,0 +1,42 @@
+{
+  "disable_ai": true,
+  "ssh_connections": [
+    {
+      "host": "fso.lab.inf.uva.es",
+      "username": "pamunoz",
+      "port": 666,
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/home/J4/pamunoz/fso"]
+        }
+      ]
+    }
+  ],
+  "relative_line_numbers": true,
+  "icon_theme": "Catppuccin Mocha",
+  "base_keymap": "VSCode",
+  "vim_mode": true,
+  "terminal": {
+    "font_size": 13
+  },
+  "ui_font_size": 15,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_weight": 600,
+  "buffer_font_size": 16,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Catppuccin Mocha"
+  },
+  "diagnostics": {
+    "include_warnings": true,
+    "inline": {
+      "enabled": true,
+      "update_debounce_ms": 150,
+      "padding": 4,
+      "min_column": 0,
+      "max_severity": null
+    }
+  }
+}
