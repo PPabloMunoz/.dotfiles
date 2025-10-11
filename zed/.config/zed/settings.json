@@ -14,7 +14,18 @@
         {
           "paths": ["/home/J4/pamunoz/fso"]
         }
-      ]
+      ],
+      "nickname": "FSO"
+    },
+    {
+      "host": "192.168.0.88",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/home/pablomunoz/projects/flux/flux-api/./"]
+        }
+      ],
+      "nickname": "Raspberry Pi 4"
     }
   ],
   "relative_line_numbers": true,
