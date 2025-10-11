@@ -1,4 +1,5 @@
 {
+  "format_on_save": "on",
   "telemetry": {
     "diagnostics": false,
     "metrics": false
@@ -12,7 +13,9 @@
       "args": [],
       "projects": [
         {
-          "paths": ["/home/J4/pamunoz/fso"]
+          "paths": [
+            "/home/J4/pamunoz/fso"
+          ]
         }
       ],
       "nickname": "FSO"
@@ -22,7 +25,9 @@
       "args": [],
       "projects": [
         {
-          "paths": ["/home/pablomunoz/projects/flux/flux-api/./"]
+          "paths": [
+            "/home/pablomunoz/projects/flux/flux-api/./"
+          ]
         }
       ],
       "nickname": "Raspberry Pi 4"
