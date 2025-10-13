@@ -84,14 +84,15 @@ format = "took [ $duration]($style) "
 style = "bold fg:duration"
 min_time = 500
 
+
 [git_branch]
-format = "via [$symbol$branch]($style) "
+format = '[ $symbol $branch ]($style)'
+symbol = ""
 style = "bold fg:git"
-symbol = " "
 
 [git_status]
-format = '[$all_status$ahead_behind]($style)'
 style = "fg:git"
+format = '[($all_status$ahead_behind )]($style)'
 
 [docker_context]
 symbol = " "
