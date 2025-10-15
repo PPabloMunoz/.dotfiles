@@ -59,3 +59,5 @@ zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'exter
 
 eval "$(starship init zsh)"
 
+
+. "$HOME/.turso/env"
