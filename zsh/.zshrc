@@ -41,6 +41,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 eval "$(fnm env)"
 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
