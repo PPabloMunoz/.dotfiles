@@ -1,4 +1,10 @@
 {
+  "outline_panel": {
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "dock": "right"
+  },
   "format_on_save": "on",
   "telemetry": {
     "diagnostics": false,
@@ -43,7 +49,7 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Catppuccin Mocha"
+    "dark": "Matte Black"
   },
   "diagnostics": {
     "include_warnings": true,
