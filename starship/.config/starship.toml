@@ -39,7 +39,8 @@ time = "#bdfffd"
 git = "#f17f29"
 git_status = "#DFEBED"
 node = "#a5e6ba"
-bun = "#fbf0df"
+# bun = "#fbf0df"
+bun = "#FFFDD0"
 java = "#F86279"
 clang = "#caf0f8"
 golang = "#01ACD9"
@@ -50,10 +51,9 @@ text_light = "#26272A"
 # I disabled some modules (Rust, Java...) since some things aren't installed in my machine, enable them if you need.
 
 [username]
-style_user = 'bold os'
-style_root = 'bold os_admin'
-format = '[  $user](fg:$style) '
-disabled = false
+style_user = 'bold'
+style_root = 'bold'
+format = '[ $user](fg:$style) '
 show_always = true
 
 [character]
@@ -102,29 +102,29 @@ symbol = " "
 
 [nodejs]
 format = "[ $symbol$version ]($style)"
-style = "bg:node fg:text_light"
+style = "fg:node"
 symbol = "󰎙 "
 version_format = "${raw}"
 
 [bun]
 format = '[ $symbol$version ]($style)'
-style = "bg:bun fg:text_light"
+style = "fg:bun"
 symbol = " "
 version_format = "${raw}"
 
 [java]
 format = "[ $symbol$version ]($style)"
-style = "bg:java fg:text_light"
+style = "fg:java"
 version_format = "${raw}"
 symbol = " "
 
 [c]
 format = "[ $symbol($version(-$name)) ]($style)"
-style = "bg:clang fg:text_light"
+style = "fg:clang"
 symbol = " "
 version_format = "${raw}"
 
 [golang]
 format = '[ $symbol$version ]($style)'
-style = "bg:clang fg:text_light"
+style = "fg:golang"
 symbol = " "
