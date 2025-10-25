@@ -3,7 +3,6 @@
 format = """\
 [╭╴](fg:arrow)\
 $username\
-$os\
 $git_branch\
 $git_status\
 ( \
