@@ -160,14 +160,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- Autoformat C/C++ on save using clangd
-vim.api.nvim_create_autocmd('BufWritePre', {
-  pattern = { '*.c', '*.cpp', '*.h' },
-  callback = function()
-    vim.lsp.buf.format { async = false }
-  end,
-})
-
 -- Set shiftwidth to 4
 vim.opt.shiftwidth = 4
 
@@ -176,6 +168,14 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.opt.termguicolors = true
+
+-- Do not create a new comment on a new line
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = '*',
+  callback = function()
+    vim.opt_local.formatoptions:remove { 'o', 'r' }
+  end,
+})
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
@@ -745,6 +745,8 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         golang = { 'goimports', 'gofumpt' },
+        javascript = { 'biome' },
+        typescript = { 'biome' },
       },
     },
   },
