@@ -64,7 +64,7 @@ disabled = false
 
 [directory]
 format = "[$path](bold $style)[$read_only]($read_only_style) "
-truncation_length = 2
+truncation_length = 4
 style = "fg:directory"
 read_only_style = "fg:directory"
 before_repo_root_style = "fg:directory"
