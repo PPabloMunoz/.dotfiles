@@ -59,6 +59,3 @@ source <(carapace _carapace)
 zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'external commands'
 
 eval "$(starship init zsh)"
-
-
-. "$HOME/.turso/env"
