@@ -450,6 +450,8 @@ require('lazy').setup({
         'gopls',
         'gofumpt',
         'goimports',
+        'jsonls',
+        'tailwindcss',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
