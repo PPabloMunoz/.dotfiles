@@ -26,6 +26,7 @@ alias la="eza --color=always --icons --no-time --git --long --all"
 alias cat="bat -p"
 alias cd="z"
 alias lg="lazygit"
+alias g="git"
 
 #END CUSTOM
 eval "$(zoxide init zsh)"
