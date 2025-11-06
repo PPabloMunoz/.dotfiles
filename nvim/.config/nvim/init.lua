@@ -325,7 +325,7 @@ require('lazy').setup({
           map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
 
           local client = vim.lsp.get_client_by_id(event.data.client_id)
-          if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_formatting) then
+          if client and client.supports_method(client, vim.lsp.protocol.Methods.textDocument_formatting) then
             -- Clear any existing LspFormat group that kickstart may have created
             pcall(vim.api.nvim_clear_autocmds, { group = 'LspFormat', buffer = event.buf })
           end
@@ -408,6 +408,7 @@ require('lazy').setup({
         },
         clangd = {},
         gopls = {},
+        ts_ls = {},
         biome = {
           -- This disables formatting capability from LSP
           capabilities = vim.tbl_deep_extend('force', capabilities, {
@@ -421,6 +422,7 @@ require('lazy').setup({
         'stylua',
         'lua_ls',
         'biome',
+        'ts_ls',
         'clangd',
         'gopls',
         'gofumpt',
