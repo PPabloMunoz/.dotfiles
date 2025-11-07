@@ -93,12 +93,11 @@ vim.keymap.set('n', '<leader>-', '<CMD>Oil --float<CR>', { desc = 'Open parent d
 vim.keymap.set('n', '<leader>bc', function()
   local root = vim.fn.getcwd()
   if vim.fn.filereadable(root .. '/bun.lockb') == 1 or vim.fn.filereadable(root .. '/package.json') == 1 then
-    local output = vim.fn.system 'bun check'
-    print(output)
+    vim.cmd '!bun check'
   else
     print 'No bun project detected'
   end
-end, { desc = 'Run bun check (background)' })
+end, { desc = 'Run bun check' })
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
