@@ -28,6 +28,10 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # fnm
 eval "$(fnm env)"
 
+if command -v ngrok &>/dev/null; then
+    eval "$(ngrok completion)"
+fi
+
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
