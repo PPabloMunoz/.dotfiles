@@ -1,51 +1,56 @@
-export NODE_ENV=development
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+################################################################################
+# ZSH configuration
+################################################################################
 
-bindkey -e
+DISABLE_AUTO_TITLE="true" # Disable auto-setting terminal title.
+COMPLETION_WAITING_DOTS="true" # Display red dots whilst waiting for completion.
+DISABLE_UNTRACKED_FILES_DIRTY="true" # Disable marking untracked files
+INC_APPEND_HISTORY="true"
+HISTFILE=${ZSH_CUSTOM_CONFIG:-$HOME}/.zsh_history # Persist history
+HISTSIZE=1000000
+SAVEHIST=1000000
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
-export XDG_CONFIG_HOME=$HOME/.config
-export EDITOR="nvim"
+setopt appendhistory
+setopt HIST_IGNORE_ALL_DUPS # Ensure no duplicates are recorded in the history
+setopt autocd extendedglob nomatch menucomplete interactive_comments
+unsetopt correct_all BEEP # Unset defaults
 
-alias reload="source ~/.zshrc"
-alias ls="eza --color=always --icons --no-time --git"
-alias ll="eza --color=always --icons --no-time --git --long"
-alias la="eza --color=always --icons --no-time --git --long --all"
-alias cat="bat -p"
-alias cd="z"
-alias lg="lazygit"
-alias g="git"
+autoload -Uz colors && colors # Colors
 
-eval "$(zoxide init zsh)"
+################################################################################
+# Command Completions
+################################################################################
 
-export GOPATH=$HOME/go
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-[ -s "/Users/pablomunoz/.bun/_bun" ] && source "/Users/pablomunoz/.bun/_bun"
-
-# fnm
-eval "$(fnm env)"
-
-if command -v ngrok &>/dev/null; then
-    eval "$(ngrok completion)"
-fi
-
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-
-source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.oh-my-zsh/custom/plugins/you-should-use/zsh-you-should-use.plugin.zsh
-
+autoload -Uz compinit
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-
-# Carapace completions
-export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
-source <(carapace _carapace)
 zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'external commands'
 
+_comp_options+=(globdots) # Include hidden files
+compinit
+
+################################################################################
+# Plugins and packages
+################################################################################
+
+source "$ZSH_CUSTOM_CONFIG/user/packages.sh"
+
+zsh_add_plugin "zsh-users/zsh-autosuggestions"
+zsh_add_plugin "zsh-users/zsh-history-substring-search"
+zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
+zsh_add_plugin "michaelAquilina/zsh-you-should-use"
+zsh_add_plugin "hlissner/zsh-autopair"
+
+zsh_add_config "config/exports.sh"
+zsh_add_config "config/aliases.sh"
+zsh_add_config "config/fzf.sh"
+
+source <(carapace _carapace)
+
+################################################################################
+# Extras
+################################################################################
+
+source "$ZSH_CUSTOM_CONFIG/user/completions.zsh"
 eval "$(starship init zsh)"

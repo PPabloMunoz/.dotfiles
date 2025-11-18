@@ -4,3 +4,6 @@
 conversations/
 prompts/
 themes/
+
+# ZSH Plugins
+zsh/.config/zsh/plugins
