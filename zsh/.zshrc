@@ -24,8 +24,6 @@ autoload -Uz colors && colors # Colors
 # Command Completions
 ################################################################################
 
-source "$ZSH_CFG/user/completions.sh"
-
 autoload -Uz compinit
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
@@ -33,6 +31,8 @@ zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'exter
 
 _comp_options+=(globdots) # Include hidden files
 compinit
+
+source "$ZSH_CFG/user/completions.sh"
 
 ################################################################################
 # Plugins and packages

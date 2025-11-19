@@ -4,7 +4,7 @@
 # Function to source config files if they exist
 # Usage: zsh_add_config "zsh-prompt"
 function zsh_add_config() {
-  [ -f "$ZSH_CUSTOM_CONFIG/$1" ] && source "$ZSH_CUSTOM_CONFIG/$1"
+  [ -f "$XDG_CONFIG_HOME/zsh/$1" ] && source "$XDG_CONFIG_HOME/zsh/$1"
 }
 
 # Function to source files from anywhere if they exist
@@ -19,9 +19,9 @@ function zsh_add_file() {
 function zsh_add_plugin() {
   PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
 
-  if [ -d "$ZSH_CUSTOM_CONFIG/plugins/$PLUGIN_NAME" ]; then
+  if [ -d "$XDG_CONFIG_HOME/zsh/plugins/$PLUGIN_NAME" ]; then
     zsh_add_config "plugins/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh" || zsh_add_config "plugins/$PLUGIN_NAME/$PLUGIN_NAME.zsh"
   else
-    git clone "https://github.com/$1.git" "$ZSH_CUSTOM_CONFIG/plugins/$PLUGIN_NAME"
+    git clone "https://github.com/$1.git" "$XDG_CONFIG_HOME/zsh/plugins/$PLUGIN_NAME"
   fi
 }
