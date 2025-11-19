@@ -8,7 +8,6 @@ export PATH=$HOME/.bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 export PATH="$HOME/.bun/bin:$PATH"
-[ -s "/Users/pablomunoz/.bun/_bun" ] && source "/Users/pablomunoz/.bun/_bun"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH=/opt/homebrew/sbin:$PATH # Recommended by brew doctor

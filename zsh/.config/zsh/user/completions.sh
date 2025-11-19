@@ -10,3 +10,5 @@ eval_if_exists() {
 eval_if_exists "zoxide" "$(zoxide init zsh)"
 eval_if_exists "fnm" "$(fnm env)"
 eval_if_exists "ngrok" "$(ngrok completion)"
+
+[ -s "/Users/pablomunoz/.bun/_bun" ] && source "/Users/pablomunoz/.bun/_bun"
