@@ -2,6 +2,8 @@
 # ZSH configuration
 ################################################################################
 
+ZSH_CFG="$XDG_CONFIG_HOME/zsh"
+
 DISABLE_AUTO_TITLE="true" # Disable auto-setting terminal title.
 COMPLETION_WAITING_DOTS="true" # Display red dots whilst waiting for completion.
 DISABLE_UNTRACKED_FILES_DIRTY="true" # Disable marking untracked files
@@ -22,6 +24,8 @@ autoload -Uz colors && colors # Colors
 # Command Completions
 ################################################################################
 
+source "$ZSH_CFG/user/completions.sh"
+
 autoload -Uz compinit
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
@@ -34,7 +38,7 @@ compinit
 # Plugins and packages
 ################################################################################
 
-source "$ZSH_CUSTOM_CONFIG/user/packages.sh"
+source "$ZSH_CFG/user/packages.sh"
 
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-history-substring-search"
@@ -52,5 +56,4 @@ source <(carapace _carapace)
 # Extras
 ################################################################################
 
-source "$ZSH_CUSTOM_CONFIG/user/completions.zsh"
 eval "$(starship init zsh)"
