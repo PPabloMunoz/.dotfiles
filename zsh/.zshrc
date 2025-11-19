@@ -20,6 +20,8 @@ unsetopt correct_all BEEP # Unset defaults
 
 autoload -Uz colors && colors # Colors
 
+bindkey -e # Fix to disable vim mode inside tmux
+
 ################################################################################
 # Command Completions
 ################################################################################
