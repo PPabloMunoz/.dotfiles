@@ -32,3 +32,4 @@ alias tn="t new -t"
 # Git
 alias lg="lazygit"
 alias g="git"
+alias gl="git pull"
