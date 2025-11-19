@@ -20,14 +20,11 @@ $cmd_duration\
 )
 [╰─](fg:arrow)$character\
 """
-# Add the modules you need
 
-# Disable the blank line at the start of the prompt
-add_newline = true
-
+add_newline = true # Disable the blank line at the start of the prompt
+command_timeout = 1000 # 1 second
 
 palette = "normal"
-
 
 [palettes.normal]
 arrow = "#333533"
