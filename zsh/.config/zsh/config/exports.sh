@@ -12,6 +12,7 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH=/opt/homebrew/sbin:$PATH # Recommended by brew doctor
 export PATH=/opt/homebrew/bin:$PATH  # Brew is first as everything else uses that
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
 
