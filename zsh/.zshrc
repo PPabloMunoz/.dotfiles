@@ -6,7 +6,7 @@ DISABLE_AUTO_TITLE="true" # Disable auto-setting terminal title.
 COMPLETION_WAITING_DOTS="true" # Display red dots whilst waiting for completion.
 DISABLE_UNTRACKED_FILES_DIRTY="true" # Disable marking untracked files
 INC_APPEND_HISTORY="true"
-HISTFILE=${ZSH_CUSTOM_CONFIG:-$HOME}/.zsh_history # Persist history
+HISTFILE=$HOME/.zsh_history # Persist history
 HISTSIZE=1000000
 SAVEHIST=1000000
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
