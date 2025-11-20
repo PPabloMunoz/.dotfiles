@@ -22,6 +22,8 @@ autoload -Uz colors && colors # Colors
 
 bindkey -e # Fix to disable vim mode inside tmux
 
+source "$ZSH_CFG/user/functions.sh"
+
 ################################################################################
 # Command Completions
 ################################################################################
