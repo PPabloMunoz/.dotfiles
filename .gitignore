@@ -7,3 +7,6 @@ themes/
 
 # ZSH Plugins
 zsh/.config/zsh/plugins
+
+# Lazygit
+state.yml
