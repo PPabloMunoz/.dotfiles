@@ -25,7 +25,7 @@ alias zsh:alias:edit="nvim ~/.config/zsh/config/aliases.sh"
 
 # Tmux
 alias t="tmux"
-alias ta="t a -t"
+alias ta="t a"
 alias tls="t ls"
 alias tn="t new -t"
 
