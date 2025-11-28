@@ -5,19 +5,7 @@ format = """\
 $username\
 $git_branch\
 $git_status\
-( \
-    at \
-    $directory\
-)\
-$cmd_duration\
-(\
-    via \
-    $java\
-    $nodejs\
-    $bun\
-    $c\
-    $golang\
-)
+$directory
 [╰─](fg:arrow)$character\
 """
 
@@ -28,21 +16,9 @@ palette = "normal"
 
 [palettes.normal]
 arrow = "#333533"
-os = "#16f4d0"
-os_admin = "#e4ff1a"
 directory = "#9ffff5"
-time = "#bdfffd"
 git = "#f17f29"
 git_status = "#DFEBED"
-node = "#a5e6ba"
-# bun = "#fbf0df"
-bun = "#FFFDD0"
-java = "#F86279"
-clang = "#caf0f8"
-golang = "#01ACD9"
-duration = "#ce4257"
-text_color = "#EDF2F4"
-text_light = "#26272A"
 
 # I disabled some modules (Rust, Java...) since some things aren't installed in my machine, enable them if you need.
 
@@ -56,8 +32,14 @@ show_always = true
 success_symbol = "[󰍟](fg:arrow)"
 error_symbol = "[󰍟](fg:red)"
 
-[line_break]
-disabled = false
+[git_branch]
+format = '[$symbol $branch ]($style)'
+symbol = ""
+style = "bold fg:git"
+
+[git_status]
+style = "fg:git"
+format = '[($all_status$ahead_behind )]($style)'
 
 [directory]
 format = "[$path](bold $style)[$read_only]($read_only_style) "
@@ -68,59 +50,3 @@ before_repo_root_style = "fg:directory"
 truncation_symbol = "…/"
 truncate_to_repo = true
 read_only = "  "
-
-[time]
-disabled = true
-format = "at [󱑈 $time]($style)"
-time_format = "%H:%M"
-style = "bold fg:time"
-
-[cmd_duration]
-format = "took [ $duration]($style) "
-style = "bold fg:duration"
-min_time = 500
-
-
-[git_branch]
-format = '[ $symbol $branch ]($style)'
-symbol = ""
-style = "bold fg:git"
-
-[git_status]
-style = "fg:git"
-format = '[($all_status$ahead_behind )]($style)'
-
-[docker_context]
-symbol = " "
-
-[fill]
-symbol = " "
-
-[nodejs]
-format = "[ $symbol$version ]($style)"
-style = "fg:node"
-symbol = "󰎙 "
-version_format = "${raw}"
-
-[bun]
-format = '[ $symbol$version ]($style)'
-style = "fg:bun"
-symbol = " "
-version_format = "${raw}"
-
-[java]
-format = "[ $symbol$version ]($style)"
-style = "fg:java"
-version_format = "${raw}"
-symbol = " "
-
-[c]
-format = "[ $symbol($version(-$name)) ]($style)"
-style = "fg:clang"
-symbol = " "
-version_format = "${raw}"
-
-[golang]
-format = '[ $symbol$version ]($style)'
-style = "fg:golang"
-symbol = " "
