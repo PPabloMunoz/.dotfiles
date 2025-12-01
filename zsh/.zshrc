@@ -1,6 +1,4 @@
-################################################################################
-# ZSH configuration
-################################################################################
+# My ZSH configuration
 
 # ====== General ======
 
@@ -154,3 +152,90 @@ export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow'
 # ====== Final ======
 
 eval "$(starship init zsh)"
+
+
+# ====== Drizzle Gateway ======
+# --------------------------------------------------
+# drizzle – control your background executable
+# Usage: drizzle start | stop | status | restart | logs
+# --------------------------------------------------
+
+drizzle() {
+  local exe="/usr/local/bin/drizzle-gateway"
+  local name="drizzle-gateway"                                         # change if you want
+  local pidfile="$HOME/.cache/${name}.pid"
+  local logfile="$HOME/.cache/${name}.log"
+
+  mkdir -p "$HOME/.cache"
+
+  case "$1" in
+    start)
+      if [[ -f "$pidfile" ]] && kill -0 $(cat "$pidfile") 2>/dev/null; then
+        echo "$name is already running (PID $(cat "$pidfile"))"
+        return 0
+      fi
+      echo "Starting $name..."
+      nohup $exe > "$logfile" 2>&1 &
+      echo $! > "$pidfile"
+      echo "$name started (PID $!)"
+      ;;
+
+    stop)
+      if [[ ! -f "$pidfile" ]]; then
+        echo "$name is not running (no PID file)"
+        return 1
+      fi
+      local pid=$(cat "$pidfile")
+      if kill -0 "$pid" 2>/dev/null; then
+        echo "Stopping $name (PID $pid)..."
+        kill "$pid"
+        # Wait a moment and force kill if needed
+        sleep 2
+        if kill -0 "$pid" 2>/dev/null; then
+          kill -9 "$pid" 2>/dev/null
+        fi
+      else
+        echo "PID $pid not running, cleaning up"
+      fi
+      rm -f "$pidfile"
+      ;;
+
+    status)
+      if [[ -f "$pidfile" ]] && kill -0 $(cat "$pidfile") 2>/dev/null; then
+        local pid=$(cat "$pidfile")
+        echo "$name is running (PID $pid)"
+        ps -p "$pid" -o pid,ppid,user,%cpu,%mem,time,cmd | tail -n1
+      else
+        echo "$name is not running"
+        [[ -f "$pidfile" ]] && rm -f "$pidfile"
+      fi
+      ;;
+
+    restart)
+      "$0" stop 2>/dev/null
+      "$0" start
+      ;;
+
+    logs)
+      tail -f "$logfile"
+      ;;
+
+    *)
+      echo "Usage: $name start|stop|status|restart|logs"
+      ;;
+  esac
+
+}
+
+_drizzle_gateway_completions() {
+  local -a subcommands
+  subcommands=(
+    'start:Start the program'
+    'stop:Stop the program'
+    'status:Show current status'
+    'restart:Restart the program'
+    'logs:Follow the log file (tail -f)'
+  )
+  _describe 'drizzle commands' subcommands
+}
+compdef _drizzle_gateway_completions drizzle
