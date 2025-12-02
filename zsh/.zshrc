@@ -162,7 +162,7 @@ eval "$(starship init zsh)"
 
 drizzle() {
   local exe="/usr/local/bin/drizzle-gateway"
-  local name="drizzle-gateway"                                         # change if you want
+  local name="drizzle-gateway"
   local pidfile="$HOME/.cache/${name}.pid"
   local logfile="$HOME/.cache/${name}.log"
 
@@ -174,8 +174,16 @@ drizzle() {
         echo "$name is already running (PID $(cat "$pidfile"))"
         return 0
       fi
-      echo "Starting $name..."
-      nohup $exe > "$logfile" 2>&1 &
+
+      # Use argument if given, otherwise environment, otherwise default
+      local store_path="${2:-${STORE_PATH:-$HOME/.local/share/drizzle}}"
+      mkdir -p "$store_path"
+
+      echo "Starting $name (STORE_PATH=$store_path)..."
+
+      STORE_PATH="$store_path" nohup "$exe" > "$logfile" 2>&1 &
+      # or: nohup env STORE_PATH="$store_path" "$exe" > "$logfile" 2>&1 &
+
       echo $! > "$pidfile"
       echo "$name started (PID $!)"
       ;;
@@ -221,16 +229,16 @@ drizzle() {
       ;;
 
     *)
-      echo "Usage: $name start|stop|status|restart|logs"
+      echo "Usage: drizzle start [STORE_PATH]|stop|status|restart|logs"
+      echo "       If STORE_PATH is omitted, defaults to \$STORE_PATH or $HOME/.local/share/drizzle"
       ;;
   esac
-
 }
 
 _drizzle_gateway_completions() {
   local -a subcommands
   subcommands=(
-    'start:Start the program'
+    'start [STORAGE_PATH]:Start the program'
     'stop:Stop the program'
     'status:Show current status'
     'restart:Restart the program'
