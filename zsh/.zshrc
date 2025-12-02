@@ -176,13 +176,12 @@ drizzle() {
       fi
 
       # Use argument if given, otherwise environment, otherwise default
-      local store_path="${2:-${STORE_PATH:-$HOME/.local/share/drizzle}}"
+      local store_path="$HOME/.local/share/drizzle"
       mkdir -p "$store_path"
 
-      echo "Starting $name (STORE_PATH=$store_path)..."
+      echo "Starting $name..."
 
-      STORE_PATH="$store_path" nohup "$exe" > "$logfile" 2>&1 &
-      # or: nohup env STORE_PATH="$store_path" "$exe" > "$logfile" 2>&1 &
+      nohup env STORE_PATH="$store_path" PORT=80 "$exe" > "$logfile" 2>&1 &
 
       echo $! > "$pidfile"
       echo "$name started (PID $!)"
