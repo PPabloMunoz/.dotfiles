@@ -11,5 +11,18 @@
     "bindings": {
       "j k": "vim::NormalBefore"
     }
+  },
+  {
+    "context": "VimControl && !menu && vim_mode == normal",
+    "bindings": {
+      "ctrl-^": "pane::GoBack"
+    }
+  },
+  {
+    "context": "VimControl && mode == full",
+    "bindings": {
+      // Overrides the default 'g d' to now run 'GoToImplementation'
+      "g r d": "editor::GoToImplementation"
+    }
   }
 ]
