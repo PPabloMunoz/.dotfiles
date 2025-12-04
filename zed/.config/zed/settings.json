@@ -1,4 +1,7 @@
 {
+  "git_panel": {
+    "dock": "right"
+  },
   "outline_panel": {
     "dock": "right"
   },
