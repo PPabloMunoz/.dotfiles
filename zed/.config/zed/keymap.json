@@ -7,19 +7,6 @@
 // from the command palette.
 [
   {
-    "context": "(Workspace || Editor) && !(vim_mode == insert)",
-    "bindings": {
-      "space space": "file_finder::Toggle"
-    }
-  },
-  {
-    "context": "Editor && (showing_code_actions || showing_completions)",
-    "bindings": {
-      "ctrl-k": "editor::ContextMenuPrevious",
-      "ctrl-j": "editor::ContextMenuNext"
-    }
-  },
-  {
     "context": "Editor && vim_mode == insert",
     "bindings": {
       "j k": "vim::NormalBefore"
