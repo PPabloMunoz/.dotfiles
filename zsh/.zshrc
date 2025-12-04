@@ -101,6 +101,7 @@ alias grep="grep --color=auto"
 alias cat="bat --paging=never --wrap=never --style=plain"
 alias editdots="cd ~/Personal/Repos/dotfiles; nvim"
 alias cd="z"
+alias d="drizzle"
 
 # Vim
 alias vimdiff='nvim -d'
