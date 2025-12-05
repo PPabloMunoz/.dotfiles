@@ -24,5 +24,11 @@
       // Overrides the default 'g d' to now run 'GoToImplementation'
       "g r d": "editor::GoToImplementation"
     }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-y": "editor::ConfirmCompletion"
+    }
   }
 ]
