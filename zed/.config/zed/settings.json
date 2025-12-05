@@ -1,4 +1,5 @@
 {
+  "colorize_brackets": true,
   "git_panel": {
     "dock": "right"
   },
