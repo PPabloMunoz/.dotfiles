@@ -26,7 +26,13 @@
     }
   },
   {
-    "context": "Editor",
+    "context": "Editor && showing_code_actions",
+    "bindings": {
+      "ctrl-y": "editor::ConfirmCodeAction"
+    }
+  },
+  {
+    "context": "Editor && showing_completions",
     "bindings": {
       "ctrl-y": "editor::ConfirmCompletion"
     }
