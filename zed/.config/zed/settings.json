@@ -1,4 +1,14 @@
 {
+  "features": {
+    "edit_prediction_provider": "copilot"
+  },
+  "agent": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-5-mini"
+    },
+    "model_parameters": []
+  },
   "colorize_brackets": true,
   "git_panel": {
     "dock": "right"
@@ -14,7 +24,7 @@
     "diagnostics": false,
     "metrics": false
   },
-  "disable_ai": true,
+  "disable_ai": false,
   "ssh_connections": [
     {
       "host": "fso.lab.inf.uva.es",
