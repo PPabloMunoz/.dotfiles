@@ -3,6 +3,7 @@
     "edit_prediction_provider": "copilot"
   },
   "agent": {
+    "default_profile": "write",
     "default_model": {
       "provider": "copilot_chat",
       "model": "gpt-5-mini"
@@ -56,10 +57,10 @@
   "terminal": {
     "font_size": 13
   },
-  "ui_font_size": 17,
+  "ui_font_size": 15,
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "buffer_font_weight": 600,
-  "buffer_font_size": 16,
+  "buffer_font_size": 15,
   "theme": {
     "mode": "system",
     "light": "One Light",
