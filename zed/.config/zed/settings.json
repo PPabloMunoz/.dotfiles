@@ -1,133 +1,100 @@
 {
-  "features": {
-    "edit_prediction_provider": "copilot"
-  },
+  "telemetry": { "diagnostics": false, "metrics": false },
+  "features": { "edit_prediction_provider": "copilot" },
   "agent": {
     "default_profile": "write",
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-5-mini"
-    },
+    "default_model": { "provider": "copilot_chat", "model": "gpt-5-mini" },
     "model_parameters": []
   },
   "colorize_brackets": true,
-  "git_panel": {
-    "dock": "right"
-  },
-  "outline_panel": {
-    "dock": "right"
-  },
-  "collaboration_panel": {
-    "dock": "right"
-  },
   "format_on_save": "on",
-  "telemetry": {
-    "diagnostics": false,
-    "metrics": false
-  },
   "disable_ai": false,
+  "vim_mode": true,
+  "relative_line_numbers": "enabled",
+  "icon_theme": "Catppuccin Mocha",
+  "base_keymap": "VSCode",
+  "scrollbar": { "show": "never" },
+  "terminal": { "font_size": 13 },
+  "ui_font_size": 15,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_weight": 600,
+  "buffer_font_size": 15,
+  "theme": { "mode": "system", "light": "One Light", "dark": "Tokyo Night" },
+  "diagnostics": {
+    "include_warnings": true,
+    "inline": {
+      "enabled": true,
+      "update_debounce_ms": 100,
+      "padding": 4,
+      "min_column": 0,
+      "max_severity": null
+    }
+  },
+  "minimap": { "show": "always" },
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    // above is default from Zed
+    "**/node_modules",
+    "**/.tanstack"
+  ],
+  "git_panel": { "dock": "right" },
+  "outline_panel": { "dock": "left" },
+  // Move some unnecessary panels to the left
+  "notification_panel": { "dock": "left" },
+  "collaboration_panel": { "dock": "left" },
+  "auto_install_extensions": {
+    "tokyo-night": true,
+    "tsgo": true,
+    "catppuccin-icons": true,
+    "biome": true
+  },
+  "languages": {
+    "JavaScript": {
+      "formatter": [
+        { "code_action": "source.fixAll.biome" },
+        { "code_action": "source.organizeImports.biome" },
+        { "language_server": { "name": "biome" } }
+      ]
+    },
+    "TypeScript": {
+      "language_servers": ["biome", "tsgo", "tailwindcss-language-server"],
+      "formatter": [
+        { "code_action": "source.fixAll.biome" },
+        { "code_action": "source.organizeImports.biome" },
+        { "language_server": { "name": "biome" } }
+      ]
+    },
+    "TSX": {
+      "language_servers": ["biome", "tsgo", "tailwindcss-language-server"],
+      "formatter": [
+        { "code_action": "source.fixAll.biome" },
+        { "code_action": "source.organizeImports.biome" },
+        { "language_server": { "name": "biome" } }
+      ]
+    }
+  },
+  "lsp": { "biome": { "settings": { "require_config_file": true } } },
   "ssh_connections": [
     {
       "host": "fso.lab.inf.uva.es",
       "username": "pamunoz",
       "port": 666,
       "args": [],
-      "projects": [
-        {
-          "paths": ["/home/J4/pamunoz/fso"]
-        }
-      ],
+      "projects": [{ "paths": ["/home/J4/pamunoz/fso"] }],
       "nickname": "FSO"
     },
     {
       "host": "192.168.0.88",
       "args": [],
-      "projects": [
-        {
-          "paths": ["/home/pablomunoz/flux/"]
-        }
-      ],
+      "projects": [{ "paths": ["/home/pablomunoz/flux/"] }],
       "nickname": "Raspberry Pi 4"
     }
-  ],
-  "vim_mode": true,
-  "relative_line_numbers": "enabled",
-  "icon_theme": "Catppuccin Mocha",
-  "base_keymap": "VSCode",
-  "terminal": {
-    "font_size": 13
-  },
-  "ui_font_size": 15,
-  "buffer_font_family": "JetBrainsMono Nerd Font",
-  "buffer_font_weight": 600,
-  "buffer_font_size": 15,
-  "theme": {
-    "mode": "system",
-    "light": "One Light",
-    "dark": "Tokyo Night"
-  },
-  "diagnostics": {
-    "include_warnings": true,
-    "inline": {
-      "enabled": true,
-      "update_debounce_ms": 150,
-      "padding": 4,
-      "min_column": 0,
-      "max_severity": null
-    }
-  },
-  "languages": {
-    "JavaScript": {
-      "formatter": [
-        {
-          "code_action": "source.fixAll.biome"
-        },
-        {
-          "code_action": "source.organizeImports.biome"
-        },
-        {
-          "language_server": {
-            "name": "biome"
-          }
-        }
-      ]
-    },
-    "TypeScript": {
-      "formatter": [
-        {
-          "code_action": "source.fixAll.biome"
-        },
-        {
-          "code_action": "source.organizeImports.biome"
-        },
-        {
-          "language_server": {
-            "name": "biome"
-          }
-        }
-      ]
-    },
-    "TSX": {
-      "formatter": [
-        {
-          "code_action": "source.fixAll.biome"
-        },
-        {
-          "code_action": "source.organizeImports.biome"
-        },
-        {
-          "language_server": {
-            "name": "biome"
-          }
-        }
-      ]
-    }
-  },
-  "lsp": {
-    "biome": {
-      "settings": {
-        "require_config_file": true
-      }
-    }
-  }
+  ]
 }
