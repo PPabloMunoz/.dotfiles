@@ -30,7 +30,7 @@
       "max_severity": null
     }
   },
-  "minimap": { "max_width_columns": 120, "show": "always" },
+  "minimap": { "max_width_columns": 120, "show": "auto" },
   "file_scan_exclusions": [
     "**/.git",
     "**/.svn",
