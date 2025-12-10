@@ -30,7 +30,7 @@
       "max_severity": null
     }
   },
-  "minimap": { "show": "always" },
+  "minimap": { "max_width_columns": 120, "show": "always" },
   "file_scan_exclusions": [
     "**/.git",
     "**/.svn",
@@ -51,7 +51,6 @@
   "collaboration_panel": { "dock": "left" },
   "auto_install_extensions": {
     "tokyo-night": true,
-    "tsgo": true,
     "catppuccin-icons": true,
     "biome": true
   },
@@ -64,7 +63,7 @@
       ]
     },
     "TypeScript": {
-      "language_servers": ["biome", "tsgo", "tailwindcss-language-server"],
+      "language_servers": ["tailwindcss-language-server", "biome", "vtsls"],
       "formatter": [
         { "code_action": "source.fixAll.biome" },
         { "code_action": "source.organizeImports.biome" },
@@ -72,7 +71,7 @@
       ]
     },
     "TSX": {
-      "language_servers": ["biome", "tsgo", "tailwindcss-language-server"],
+      "language_servers": ["tailwindcss-language-server", "biome", "vtsls"],
       "formatter": [
         { "code_action": "source.fixAll.biome" },
         { "code_action": "source.organizeImports.biome" },
