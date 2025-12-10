@@ -101,6 +101,7 @@ alias grep="grep --color=auto"
 alias cat="bat --paging=never --wrap=never --style=plain"
 alias editdots="cd ~/Personal/Repos/dotfiles; nvim"
 alias cd="z"
+alias lg="lazygit"
 alias d="drizzle"
 
 # Vim
@@ -120,10 +121,27 @@ alias tls="t ls"
 alias tn="t new -t"
 
 # Git
-alias lg="lazygit"
 alias g="git"
-alias gl="git pull"
-alias gp="git push"
+alias gl='git pull'
+alias gp='git push'
+# Status
+alias gs='git status'
+alias gss='git status -s' # Short status (less verbose)
+# Adding files
+alias ga='git add'
+alias gaa='git add --all' # Add everything (staged and new files)
+# Committing
+alias gc='git commit -m'  # Usage: gc "commit message"
+# Checkout
+alias gco='git checkout'
+alias gcb='git checkout -b' # Create and switch to a new branch
+# Branch management
+alias gb='git branch'
+alias gbd='git branch -d' # Delete branch (safe)
+alias gbD='git branch -D' # Force delete branch
+alias gsw='git switch'
+alias gswc='git switch -c' # Create and switch to a new branch
+alias gswm='git switch main' # Switch to the main branch
 
 source <(carapace _carapace)
 
