@@ -211,3 +211,19 @@ shift-down = ['volume set 0', 'mode main']
 [[on-window-detected]]
 if.app-id = 'com.apple.iCal'
 run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'dev.datapeek.app'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Notes'
+run = ['layout floating']
+
+# [[on-window-detected]]
+# if.app-id = ''
+# run = ['layout floating']
