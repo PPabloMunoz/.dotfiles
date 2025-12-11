@@ -1,8 +1,63 @@
 {
-  "tabs": { "git_status": true },
   "telemetry": { "diagnostics": false, "metrics": false },
+  "context_servers": {
+    "postgres-context-server": {
+      "enabled": true,
+      "settings": {
+        "database_url": "postgresql://postgres:postgres@localhost:5432/organizr"
+      }
+    },
+    "Context7": {
+      "enabled": true,
+      "settings": {
+        "source": "custom",
+        "command": "npx",
+        "args": [
+          "-y",
+          "@upstash/context7-mcp",
+          "--api-key",
+          "$CONTEXT7_API_KEY"
+        ]
+      }
+    }
+  },
+  "tabs": { "git_status": true },
   "features": { "edit_prediction_provider": "copilot" },
   "agent": {
+    "always_allow_tool_actions": true,
+    "profiles": {
+      "ask": {
+        "name": "Ask",
+        "tools": {
+          "diagnostics": true,
+          "fetch": true,
+          "list_directory": true,
+          "project_notifications": false,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "open": true,
+          "grep": true,
+          "thinking": true,
+          "web_search": true
+        },
+        "enable_all_context_servers": false,
+        "context_servers": {
+          "mcp-server-context7": {
+            "tools": {
+              "resolve-library-id": true,
+              "get-library-docs": true
+            }
+          },
+          "postgres-context-server": {
+            "tools": {
+              "pg-schema": true,
+              "query": true
+            }
+          }
+        }
+      }
+    },
     "default_profile": "write",
     "default_model": { "provider": "copilot_chat", "model": "gpt-5-mini" },
     "model_parameters": []
