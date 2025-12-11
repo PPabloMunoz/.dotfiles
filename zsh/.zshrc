@@ -1,5 +1,7 @@
 # My ZSH configuration
 
+export XDG_CONFIG_HOME=$HOME/.config
+
 # ====== General ======
 
 ZSH_CFG="$XDG_CONFIG_HOME/zsh"
