@@ -146,7 +146,7 @@ alias gsw='git switch'
 alias gswc='git switch -c' # Create and switch to a new branch
 alias gswm='git switch main' # Switch to the main branch
 
-alias gfp = 'git fetch -p'
+alias gfp='git fetch -p'
 
 source <(carapace _carapace)
 
