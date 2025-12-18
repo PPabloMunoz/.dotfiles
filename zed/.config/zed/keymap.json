@@ -36,5 +36,10 @@
     "bindings": {
       "ctrl-y": "editor::ConfirmCompletion"
     }
+  },
+  {
+    "bindings": {
+      "ctrl-alt-c": "project_panel::CollapseAllEntries"
+    }
   }
 ]
