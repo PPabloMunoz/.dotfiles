@@ -39,7 +39,7 @@
   },
   {
     "bindings": {
-      "ctrl-alt-c": "project_panel::CollapseAllEntries"
+      "ctrl-alt-.": "project_panel::CollapseAllEntries"
     }
   }
 ]
