@@ -3,9 +3,10 @@
 format = """\
 [╭╴](fg:arrow)\
 $username\
+$hostname\
+$directory\
 $git_branch\
-$git_status\
-$directory
+$git_status
 [╰─](fg:arrow)$character\
 """
 
@@ -25,8 +26,13 @@ git_status = "#DFEBED"
 [username]
 style_user = 'bold'
 style_root = 'bold'
-format = '[ $user](fg:$style) '
+format = ' [$user](fg:$style)'
 show_always = true
+
+[hostname]
+ssh_only = false
+format = ' on [$hostname](bold red) in '
+disabled = false
 
 [character]
 success_symbol = "[󰍟](fg:arrow)"
