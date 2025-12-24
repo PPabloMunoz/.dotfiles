@@ -1,67 +1,14 @@
 {
-  "telemetry": { "diagnostics": false, "metrics": false },
-  "context_servers": {
-    "postgres-context-server": {
-      "enabled": true,
-      "settings": {
-        "database_url": "postgresql://postgres:postgres@localhost:5432/organizr"
-      }
+  "agent": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "oswe-vscode-prime",
     },
-    "Context7": {
-      "enabled": true,
-      "settings": {
-        "source": "custom",
-        "command": "npx",
-        "args": [
-          "-y",
-          "@upstash/context7-mcp",
-          "--api-key",
-          "$CONTEXT7_API_KEY"
-        ]
-      }
-    }
+    "model_parameters": [],
   },
+  "telemetry": { "diagnostics": false, "metrics": false },
   "tabs": { "git_status": true },
   "features": { "edit_prediction_provider": "copilot" },
-  "agent": {
-    "always_allow_tool_actions": true,
-    "profiles": {
-      "ask": {
-        "name": "Ask",
-        "tools": {
-          "diagnostics": true,
-          "fetch": true,
-          "list_directory": true,
-          "project_notifications": false,
-          "now": true,
-          "find_path": true,
-          "read_file": true,
-          "open": true,
-          "grep": true,
-          "thinking": true,
-          "web_search": true
-        },
-        "enable_all_context_servers": false,
-        "context_servers": {
-          "mcp-server-context7": {
-            "tools": {
-              "resolve-library-id": true,
-              "get-library-docs": true
-            }
-          },
-          "postgres-context-server": {
-            "tools": {
-              "pg-schema": true,
-              "query": true
-            }
-          }
-        }
-      }
-    },
-    "default_profile": "write",
-    "default_model": { "provider": "copilot_chat", "model": "oswe-vscode-prime" },
-    "model_parameters": []
-  },
   "colorize_brackets": true,
   "format_on_save": "on",
   "disable_ai": false,
@@ -83,8 +30,8 @@
       "update_debounce_ms": 100,
       "padding": 4,
       "min_column": 0,
-      "max_severity": null
-    }
+      "max_severity": null,
+    },
   },
   "minimap": { "max_width_columns": 120, "show": "auto" },
   "file_scan_exclusions": [
@@ -98,7 +45,7 @@
     "**/.settings",
     // above is default from Zed
     "**/node_modules",
-    "**/.tanstack"
+    "**/.tanstack",
   ],
   "git_panel": { "status_style": "icon", "dock": "right" },
   "outline_panel": { "dock": "left" },
@@ -108,34 +55,7 @@
   "auto_install_extensions": {
     "tokyo-night": true,
     "catppuccin-icons": true,
-    "biome": true
   },
-  "languages": {
-    "JavaScript": {
-      "formatter": [
-        { "code_action": "source.fixAll.biome" },
-        { "code_action": "source.organizeImports.biome" },
-        { "language_server": { "name": "biome" } }
-      ]
-    },
-    "TypeScript": {
-      "language_servers": ["tailwindcss-language-server", "biome", "vtsls"],
-      "formatter": [
-        { "code_action": "source.fixAll.biome" },
-        { "code_action": "source.organizeImports.biome" },
-        { "language_server": { "name": "biome" } }
-      ]
-    },
-    "TSX": {
-      "language_servers": ["tailwindcss-language-server", "biome", "vtsls"],
-      "formatter": [
-        { "code_action": "source.fixAll.biome" },
-        { "code_action": "source.organizeImports.biome" },
-        { "language_server": { "name": "biome" } }
-      ]
-    }
-  },
-  "lsp": { "biome": { "settings": { "require_config_file": true } } },
   "ssh_connections": [
     {
       "host": "fso.lab.inf.uva.es",
@@ -143,13 +63,13 @@
       "port": 666,
       "args": [],
       "projects": [{ "paths": ["/home/J4/pamunoz/fso"] }],
-      "nickname": "FSO"
+      "nickname": "FSO",
     },
     {
       "host": "192.168.0.88",
       "args": [],
       "projects": [{ "paths": ["/home/pablomunoz/flux/"] }],
-      "nickname": "Raspberry Pi 4"
-    }
-  ]
+      "nickname": "Raspberry Pi 4",
+    },
+  ],
 }
