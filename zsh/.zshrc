@@ -271,7 +271,4 @@ _drizzle_gateway_completions() {
 }
 compdef _drizzle_gateway_completions drizzle
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/pablomunoz/.lmstudio/bin"
-# End of LM Studio CLI section
-
+. "$HOME/.turso/env"
