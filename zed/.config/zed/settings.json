@@ -1,8 +1,22 @@
 {
   "agent": {
+    "favorite_models": [
+      {
+        "provider": "copilot_chat",
+        "model": "gemini-3-flash-preview"
+      },
+      {
+        "provider": "copilot_chat",
+        "model": "gemini-3-pro-preview"
+      },
+      {
+        "provider": "copilot_chat",
+        "model": "oswe-vscode-prime"
+      }
+    ],
     "default_model": {
       "provider": "copilot_chat",
-      "model": "oswe-vscode-prime",
+      "model": "gemini-3-flash-preview",
     },
     "model_parameters": [],
   },
