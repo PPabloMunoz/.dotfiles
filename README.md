@@ -1,93 +1,164 @@
-# Dotfiles 🗂️
+# Nix Configuration for Multiple Hosts
 
-Welcome to my dotfiles repository! 🎉 This collection contains my personal configuration files for various tools and applications, managed using [GNU Stow](https://www.gnu.org/software/stow/). These dotfiles are tailored to my workflow, but feel free to explore, adapt, or use them as inspiration for your own setup! 🚀
+This flake manages dotfiles and development environment across multiple hosts using Home Manager.
 
-Repository: [https://github.com/ppablomunoz/.dotfiles](https://github.com/ppablomunoz/.dotfiles)
+## Hosts
 
-## Overview 📋
+| Hostname | System | Description |
+|----------|--------|-------------|
+| `linux-ssh` | aarch64-linux | Headless Linux machine (SSH only) |
+| `mac` | aarch64-darwin | macOS (Mac Mini + MacBook) |
 
-This repository stores configuration files (dotfiles) for tools like shell (e.g., Bash, Zsh), editors (e.g., Vim, Neovim), and other utilities. By using Stow, these configurations can be symlinked into your home directory, keeping your setup clean and version-controlled. 🛠️
-
-## Prerequisites ✅
-
-To use these dotfiles, you'll need the following installed:
-
-- [Git](https://git-scm.com/) - To clone the repository 📦
-- [GNU Stow](https://www.gnu.org/software/stow/) - To manage symlinks for the dotfiles 🔗
-- A Unix-like operating system (Linux, macOS, WSL, etc.) 🖥️
-
-Optional dependencies may include specific tools or applications configured by the dotfiles (e.g., Zsh, Vim, Tmux, etc.). Check the specific dotfile directories for details.
-
-## Installation 🛠️
-
-Follow these steps to set up the dotfiles on your system:
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/ppablomunoz/.dotfiles ~/.dotfiles
-   ```
-
-2. **Navigate to the dotfiles directory**:
-   ```bash
-   cd ~/.dotfiles
-   ```
-
-3. **Use Stow to symlink the configurations**:
-   For each tool or application you want to configure, run the following command (replace `<package>` with the directory name, e.g., `zsh`, `vim`, etc.):
-   ```bash
-   stow <package>
-   ```
-
-   Example:
-   ```bash
-   stow zsh
-   stow vim
-   ```
-
-   This will create symlinks in your home directory (e.g., `~/.zshrc`, `~/.vimrc`) pointing to the corresponding files in the repository. 🔗
-
-4. **Verify the setup**:
-   Ensure the symlinks are created correctly by checking your home directory:
-   ```bash
-   ls -la ~
-   ```
-
-## Usage ⚙️
-
-- **Adding new dotfiles**: Place configuration files in their respective directories (e.g., `zsh/.zshrc`, `vim/.vimrc`) and use `stow <package>` to symlink them. ➕
-- **Updating dotfiles**: Modify the files in the `~/.dotfiles` directory, commit changes, and push to the repository:
-   ```bash
-   git add .
-   git commit -m "Update dotfiles"
-   git push origin main
-   ```
-- **Removing dotfiles**: To remove a configuration, use:
-   ```bash
-   stow -D <package>
-   ```
-   This deletes the symlinks without affecting the repository files. 🗑️
-
-## Structure 📂
-
-The repository is organized into directories, each corresponding to a specific tool or application. For example:
+## Directory Structure
 
 ```
-.dotfiles/
-├── zsh/
-│   └── .zshrc
-├── vim/
-│   └── .vimrc
-├── tmux/
-│   └── .tmux.conf
-└── README.md
+nix/
+├── flake.nix              # Main entry point
+├── README.md              # This file
+├── hosts/                 # Host-specific configurations
+│   ├── template.nix       # Template for new hosts
+│   ├── linux-ssh.nix      # Linux configuration
+│   └── mac.nix            # macOS configuration
+└── home/                  # Home Manager modules
+    ├── default.nix        # Base home configuration
+    ├── packages/          # Package definitions
+    │   ├── shared.nix     # Packages for all systems
+    │   ├── linux.nix      # Linux-only packages
+    │   └── darwin.nix     # macOS-only packages
+    ├── shell/             # Shell configuration
+    │   ├── default.nix    # Shell module
+    │   ├── .zshrc.linux   # Linux zshrc
+    │   └── .zshrc.mac     # macOS zshrc
+    ├── starship/          # Starship prompt
+    ├── nvim/              # Neovim configuration
+    └── lazygit/           # Lazygit configuration
 ```
 
-Each directory contains the configuration files for a specific tool, and Stow symlinks them to the appropriate location in your home directory. 🗄️
+## Usage
 
-## Contributing 🤝
+### Apply Configuration to a Host
 
-This is a personal dotfiles repository, but suggestions or improvements are welcome! Feel free to open an issue or submit a pull request on [GitHub](https://github.com/ppablomunoz/.dotfiles). 🌟
+```bash
+# Apply Linux configuration
+nix run home-manager/master -- switch --flake '.#linux-ssh'
+home-manager switch --flake '.#linux-ssh'
 
-## License 📜
+# Apply macOS configuration
+nix run home-manager/master -- switch --flake '.#mac'
+home-manager switch --flake '.#mac'
+```
 
-This repository is licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute these dotfiles as you see fit! 😄
+**Note:** After running `home-manager switch`, you must manually copy the Git configuration:
+```bash
+cp home/git/.gitconfig ~/.gitconfig
+```
+
+### Check Configuration Without Applying
+
+```bash
+# Build configuration without activating
+nix build .#homeConfigurations.<hostname>.activationPackage
+./result/activate
+```
+
+### View Available Hosts
+
+```bash
+nix flake show
+```
+
+## Adding a New Host
+
+1. Copy the template:
+   ```bash
+   cp hosts/template.nix hosts/new-hostname.nix
+   ```
+
+2. Edit `hosts/new-hostname.nix`:
+   - Set `home.homeDirectory` to the full path (e.g., "/home/username")
+   - Add any host-specific imports:
+     - For macOS: `../home/packages/darwin.nix`
+     - For Linux: `../home/packages/linux.nix` (optional, currently empty)
+   - Add any host-specific configurations
+
+3. Add the new host to `flake.nix` in the `configs` let binding
+
+4. Apply the configuration:
+   ```bash
+   nix run home-manager/master -- switch --flake .#new-hostname
+   ```
+
+## Package Management
+
+Packages are organized by platform:
+
+- **Shared** (`home/packages/shared.nix`): Available on all systems
+- **Linux** (`home/packages/linux.nix`): Linux-only packages
+- **Darwin** (`home/packages/darwin.nix`): macOS-only packages
+
+To add a package, edit the appropriate file.
+
+## Shell Configuration
+
+The shell module selects the correct `.zshrc` based on hostname:
+- `mac` → `.zshrc.mac`
+- Any other hostname → `.zshrc.linux`
+
+Create additional `.zshrc.*` files in `home/shell/` and update the shell module to support new hostnames.
+
+## Customizing Configuration
+
+### Environment Variables
+
+Edit `home/default.nix` and modify `home.sessionVariables`.
+
+### Programs
+
+Enable/disable programs in host files or `home/default.nix`:
+```nix
+programs.someProgram.enable = true;
+```
+
+### Home Packages
+
+Add packages to the appropriate file in `home/packages/`:
+```nix
+home.packages = with pkgs; [
+  new-package
+];
+```
+
+## Troubleshooting
+
+### Configuration Not Applying
+
+1. Check for syntax errors:
+   ```bash
+   nix eval .#homeConfigurations.<hostname> --apply config 2>&1 | head -50
+   ```
+
+2. View generated activation script:
+   ```bash
+   nix build .#homeConfigurations.<hostname>.activationPackage --print-out-paths
+   ```
+
+### Missing Packages
+
+Ensure the package exists in nixpkgs for your system:
+```bash
+nix-env -qaP <package-name>
+```
+
+### Shell Not Loading
+
+Make sure your shell profile sources the Home Manager environment:
+```bash
+# Add to ~/.zshrc or ~/.profile
+. ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+```
+
+## References
+
+- [Home Manager Manual](https://nix-community.github.io/home-manager/)
+- [Nix Flakes](https://nix.dev/manual/nix/2.24/command-ref/new-cli-nix#sec-flakes)
+- [Nixpkgs](https://nixpkgs Manual)
