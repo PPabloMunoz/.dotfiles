@@ -7,6 +7,7 @@ This flake manages dotfiles and development environment across multiple hosts us
 | Hostname | System | Description |
 |----------|--------|-------------|
 | `linux-ssh` | aarch64-linux | Headless Linux machine (SSH only) |
+| `linux-ssh-x64` | x86_64-linux | Headless Linux x64 machine (SSH only) |
 | `mac` | aarch64-darwin | macOS (Mac Mini + MacBook) |
 
 ## Directory Structure
@@ -42,6 +43,10 @@ nix/
 # Apply Linux configuration
 nix run home-manager/master -- switch --flake '.#linux-ssh'
 home-manager switch --flake '.#linux-ssh'
+
+# Apply Linux x64 configuration
+nix run home-manager/master -- switch --flake '.#linux-ssh-x64'
+home-manager switch --flake '.#linux-ssh-x64'
 
 # Apply macOS configuration
 nix run home-manager/master -- switch --flake '.#mac'
