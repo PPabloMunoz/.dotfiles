@@ -142,13 +142,6 @@ home.packages = with pkgs; [
    nix build .#homeConfigurations.<hostname>.activationPackage --print-out-paths
    ```
 
-### Missing Packages
-
-Ensure the package exists in nixpkgs for your system:
-```bash
-nix-env -qaP <package-name>
-```
-
 ### Shell Not Loading
 
 Make sure your shell profile sources the Home Manager environment:
