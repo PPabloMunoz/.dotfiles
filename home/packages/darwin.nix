@@ -4,5 +4,6 @@
 {
   home.packages = with pkgs; [
     opencode
+    _1password-cli
   ];
 }

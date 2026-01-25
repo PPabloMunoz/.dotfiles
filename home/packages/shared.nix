@@ -2,9 +2,6 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    # Secrets
-    _1password-cli
-
     # Version Control
     git
     lazygit
