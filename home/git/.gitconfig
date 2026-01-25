@@ -9,10 +9,10 @@
     path = ~/.gitconfig-university
 
 [gpg]
-  format = ssh
+    format = ssh
 
 [gpg "ssh"]
-  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+    program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 
 [merge]
     conflictstyle = diff3
@@ -30,4 +30,4 @@
     autocrlf = input
 
 [commit]
-	gpgsign = true
+    gpgsign = true
