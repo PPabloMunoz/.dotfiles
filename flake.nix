@@ -28,6 +28,11 @@
           hostname = "linux-ssh";
         };
 
+        linux-ssh-x64 = makeHostConfig {
+          system = "x86_64-linux";
+          hostname = "linux-ssh-x64";
+        };
+
         mac = makeHostConfig {
           system = "aarch64-darwin";
           hostname = "mac";
