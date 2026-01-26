@@ -6,33 +6,34 @@ This flake manages dotfiles and development environment across multiple hosts us
 
 | Hostname | System | Description |
 |----------|--------|-------------|
-| `linux-ssh` | aarch64-linux | Headless Linux machine (SSH only) |
-| `linux-ssh-x64` | x86_64-linux | Headless Linux x64 machine (SSH only) |
+| `linux-minimal` | aarch64-linux | Headless Linux machine (SSH only) |
+| `linux-minimal-x64` | x86_64-linux | Headless Linux x64 machine (SSH only) |
 | `mac` | aarch64-darwin | macOS (Mac Mini + MacBook) |
 
 ## Directory Structure
 
 ```
 nix/
-├── flake.nix              # Main entry point
-├── README.md              # This file
-├── hosts/                 # Host-specific configurations
-│   ├── template.nix       # Template for new hosts
-│   ├── linux-ssh.nix      # Linux configuration
-│   └── mac.nix            # macOS configuration
-└── home/                  # Home Manager modules
-    ├── default.nix        # Base home configuration
-    ├── packages/          # Package definitions
-    │   ├── shared.nix     # Packages for all systems
-    │   ├── linux.nix      # Linux-only packages
-    │   └── darwin.nix     # macOS-only packages
-    ├── shell/             # Shell configuration
-    │   ├── default.nix    # Shell module
-    │   ├── .zshrc.linux   # Linux zshrc
-    │   └── .zshrc.mac     # macOS zshrc
-    ├── starship/          # Starship prompt
-    ├── nvim/              # Neovim configuration
-    └── lazygit/           # Lazygit configuration
+├── flake.nix                  # Main entry point
+├── README.md                  # This file
+├── hosts/                     # Host-specific configurations
+│   ├── template.nix           # Template for new hosts
+│   ├── linux-minimal.nix      # Linux configuration
+│   ├── linux-minimal-x64.nix  # Linux configuration
+│   └── mac.nix                # macOS configuration
+└── home/                      # Home Manager modules
+    ├── default.nix            # Base home configuration
+    ├── packages/              # Package definitions
+    │   ├── shared.nix         # Packages for all systems
+    │   ├── linux.nix          # Linux-only packages
+    │   └── darwin.nix         # macOS-only packages
+    ├── shell/                 # Shell configuration
+    │   ├── default.nix        # Shell module
+    │   ├── .zshrc.linux       # Linux zshrc
+    │   └── .zshrc.mac         # macOS zshrc
+    ├── starship/              # Starship prompt
+    ├── nvim/                  # Neovim configuration
+    └── lazygit/               # Lazygit configuration
 ```
 
 ## Usage
@@ -41,12 +42,12 @@ nix/
 
 ```bash
 # Apply Linux configuration
-nix run home-manager/master -- switch --flake '.#linux-ssh'
-home-manager switch --flake '.#linux-ssh'
+nix run home-manager/master -- switch --flake 'string.numeric'
+home-manager switch --flake '.#linux-minimal'
 
 # Apply Linux x64 configuration
-nix run home-manager/master -- switch --flake '.#linux-ssh-x64'
-home-manager switch --flake '.#linux-ssh-x64'
+nix run home-manager/master -- switch --flake '.#linux-minimal-x64'
+home-manager switch --flake '.#linux-minimal-x64'
 
 # Apply macOS configuration
 nix run home-manager/master -- switch --flake '.#mac'

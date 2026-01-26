@@ -23,14 +23,14 @@
         };
 
       configs = {
-        linux-ssh = makeHostConfig {
+        linux-minimal = makeHostConfig {
           system = "aarch64-linux";
-          hostname = "linux-ssh";
+          hostname = "linux-minimal";
         };
 
-        linux-ssh-x64 = makeHostConfig {
+        linux-minimal-x64 = makeHostConfig {
           system = "x86_64-linux";
-          hostname = "linux-ssh-x64";
+          hostname = "linux-minimal-x64";
         };
 
         mac = makeHostConfig {
