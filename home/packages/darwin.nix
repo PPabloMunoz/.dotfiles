@@ -5,5 +5,7 @@
   home.packages = with pkgs; [
     opencode
     _1password-cli
+    timer
+    terminal-notifier
   ];
 }
