@@ -559,6 +559,9 @@ require('lazy').setup({
       highlight = { enable = true },
       indent = { enable = true },
     },
+    config = function(_, opts)
+      require('nvim-treesitter').setup(opts)
+    end,
   },
 
   require 'kickstart.plugins.indent_line',
