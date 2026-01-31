@@ -14,6 +14,7 @@
     zoxide
     eza
     jq
+    just # Make replacement
 
     # Shell & Terminal
     tmux
