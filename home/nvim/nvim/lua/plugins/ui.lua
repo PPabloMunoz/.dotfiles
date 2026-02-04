@@ -67,21 +67,21 @@ return {
 
   -- Mini.nvim (surround, animate, statusline)
   {
-    'echasnovski/mini.nvim',
+    'nvim-mini/mini.nvim',
     config = function()
       -- Add/delete/replace surroundings
       require('mini.surround').setup {}
-      
+
       -- Smooth animations
       require('mini.animate').setup {
         cursor = { enable = true },
         scroll = { enable = true },
       }
-      
+
       -- Statusline
       local statusline = require 'mini.statusline'
       statusline.setup { use_icons = vim.g.have_nerd_font }
-      
+
       ---@diagnostic disable-next-line: duplicate-set-field
       statusline.section_location = function()
         return '%2l:%-2v'
