@@ -14,37 +14,16 @@ local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
 require('lazy').setup({
-  -- Core editor functionality
   require 'plugins.editor',
-
-  -- UI and visual enhancements
   require 'plugins.ui',
-
-  -- Navigation and fuzzy finding
   require 'plugins.navigation',
-
-  -- LSP and diagnostics
   require 'plugins.lsp',
-
-  -- Code formatting
   require 'plugins.formatting',
-
-  -- Autocompletion
   require 'plugins.completion',
-
-  -- Git integration
   require 'plugins.git',
-
-  -- Indentation guides
   require 'plugins.indent',
-
-  -- Linting
   require 'plugins.lint',
-
-  -- Auto-close brackets
   require 'plugins.autopairs',
-
-  -- Custom plugins
   require 'plugins.custom.oil',
   require 'plugins.custom.lazygit',
   require 'plugins.custom.highlight-colors',
