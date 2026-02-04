@@ -1,3 +1,5 @@
+-- Oil file manager with git status
+
 return {
   {
     'refractalize/oil-git-status.nvim',
@@ -8,8 +10,6 @@ return {
   },
   {
     'stevearc/oil.nvim',
-    ---@module 'oil'
-    ---@type oil.SetupOpts
     opts = {
       default_file_explorer = true,
       columns = { 'icon' },
