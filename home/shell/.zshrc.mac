@@ -179,7 +179,7 @@ drizzle() {
 
       echo "Starting $name..."
 
-      nohup env STORE_PATH="$store_path" PORT=1234 "$exe" > "$logfile" 2>&1 &
+      nohup env STORE_PATH="$store_path" PORT=8888 "$exe" > "$logfile" 2>&1 &
 
       echo $! > "$pidfile"
       echo "$name started (PID $!)"
