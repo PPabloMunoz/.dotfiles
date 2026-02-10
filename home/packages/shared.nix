@@ -35,9 +35,10 @@
 
     # Development
     go
+    nodejs_24
     fnm
-    bun
     pnpm
+    bun
 
     # Extra
     htop
