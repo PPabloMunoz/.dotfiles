@@ -36,8 +36,6 @@ export CARAPACE_BRIDGES='zsh'
 export NODE_ENV=development
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-
-export XDG_CONFIG_HOME=$HOME/.config
 export EDITOR="nvim"
 
 # ====== Aux Functions ======
@@ -84,28 +82,23 @@ eval_if_exists "fzf" "$(fzf --zsh)"
 # ====== Plugins ======
 
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
-zsh_add_plugin "zsh-users/zsh-history-substring-search"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "michaelAquilina/zsh-you-should-use"
-zsh_add_plugin "hlissner/zsh-autopair"
 
 # ====== Alias ======
 
 alias ls="eza -s type"
 alias ll="eza --color=always --icons --no-time --git --long"
 alias la="eza --color=always --icons --no-time --git --long --all"
-alias grep="grep --color=auto"
+
 alias cat="bat --paging=never --wrap=never --style=plain"
-alias editdots="cd ~/Personal/Repos/dotfiles; nvim"
 alias cd="z"
-alias lg="lazygit"
-alias d="drizzle"
+alias lg="lazygit -ucd ~/.config/lazygit/"
+alias d="drizzle" # Drizzle gateway config at the end of file
 
 # ZSH
 alias zsh:reload="source $HOME/.zshrc"
 alias zsh:edit="nvim $HOME/.zshrc"
-alias zsh:alias="cat ~/.config/zsh/config/aliases.sh"
-alias zsh:alias:edit="nvim ~/.config/zsh/config/aliases.sh"
 
 # Tmux
 alias t="tmux"
@@ -114,7 +107,6 @@ alias tls="t ls"
 alias tn="t new -t"
 
 # Git
-alias g="git"
 alias gl='git pull'
 alias gp='git push'
 
@@ -126,18 +118,7 @@ alias gaa='git add --all'
 
 alias gc='git commit -m'
 
-alias gco='git checkout'
-alias gcb='git checkout -b'
-
-alias gb='git branch'
-alias gbd='git branch -d'
-alias gbD='git branch -D'
-
-alias gsw='git switch'
-alias gswc='git switch -c'
-alias gswm='git switch main'
-
-alias gfp='git fetch -p'
+alias gdiff='git diff'
 
 # Pomodoro alias
 alias work="timer 50m && terminal-notifier -message 'Pomodoro'\
@@ -152,7 +133,7 @@ source <(carapace _carapace)
 
 # ====== Final ======
 
-# ====== Drizzle Gateway ======
+# ====== Drizzle Gateway Config ======
 # --------------------------------------------------
 # drizzle – control your background executable
 # Usage: drizzle start | stop | status | restart | logs
@@ -205,17 +186,6 @@ drizzle() {
       rm -f "$pidfile"
       ;;
 
-    status)
-      if [[ -f "$pidfile" ]] && kill -0 $(cat "$pidfile") 2>/dev/null; then
-        local pid=$(cat "$pidfile")
-        echo "$name is running (PID $pid)"
-        ps -p "$pid" -o pid,ppid,user,%cpu,%mem,time,cmd | tail -n1
-      else
-        echo "$name is not running"
-        [[ -f "$pidfile" ]] && rm -f "$pidfile"
-      fi
-      ;;
-
     restart)
       "$0" stop 2>/dev/null
       "$0" start
@@ -226,7 +196,7 @@ drizzle() {
       ;;
 
     *)
-      echo "Usage: drizzle start [STORE_PATH]|stop|status|restart|logs"
+      echo "Usage: drizzle start [STORE_PATH]|stop|restart|logs"
       echo "       If STORE_PATH is omitted, defaults to \$STORE_PATH or $HOME/.local/share/drizzle"
       ;;
   esac
