@@ -97,6 +97,7 @@ return {
         'gofumpt',
         'goimports',
         'clangd',
+        'jdtls',
       })
       
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }

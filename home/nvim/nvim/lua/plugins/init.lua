@@ -23,7 +23,6 @@ require('lazy').setup({
   require 'plugins.git',
   require 'plugins.indent',
   require 'plugins.lint',
-  require 'plugins.autopairs',
   require 'plugins.custom.oil',
   require 'plugins.custom.lazygit',
   require 'plugins.custom.highlight-colors',

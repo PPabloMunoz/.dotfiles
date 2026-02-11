@@ -23,6 +23,7 @@ return {
         'javascript',
         'json5',
         'toml',
+        'java',
       },
       auto_install = true,
       highlight = { enable = true },

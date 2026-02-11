@@ -21,6 +21,11 @@ return {
         local disable_filetypes = { c = true, cpp = true }
         if disable_filetypes[vim.bo[bufnr].filetype] then
           return nil
+        elseif vim.bo[bufnr].filetype == 'java' then
+          return {
+            timeout_ms = 500,
+            lsp_format = 'prefer', -- use jdtls for Java
+          }
         else
           return {
             timeout_ms = 500,
@@ -37,6 +42,7 @@ return {
         typescriptreact = { 'biome' },
         json = { 'biome' },
         jsonc = { 'biome' },
+        java = {}, -- uses jdtls LSP formatting
       },
     },
   },
